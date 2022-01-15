@@ -1,0 +1,10 @@
+#login,
+#password {
+  padding: 2rem;
+  border-radius: 0.8rem;
+  min-width: 22rem;
+  min-height: 3rem;
+  border: 0.5px;
+  border-color: #ccc;
+  background-color: #fff;
+}

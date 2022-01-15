@@ -5,7 +5,7 @@ const submitBtn = document.querySelector("#submitBtn") as HTMLButtonElement
 const addExpenseBtn = document.querySelector(
   "#addExpenseBtn"
 ) as HTMLButtonElement
-const addItemBtn = document.querySelector("#addItemBtn") as HTMLButtonElement
+// const addItemBtn = document.querySelector("#addItemBtn") as HTMLButtonElement
 
 //all expenses section
 const allExpenses = document.querySelector("#allExp") as HTMLDivElement
@@ -79,6 +79,42 @@ addExpenseBtn.addEventListener("click", () => {
 cancelExpenseBtn.addEventListener("click", () => {
   addExpenseSection.classList.add("hide")
   addExpenseBtn.classList.remove("hide")
+})
+
+//add inidviadaul items
+const addItemBtn = document.querySelector("#addItem") as HTMLButtonElement
+const itemsTable = document.querySelector("#itemsTable") as HTMLTableElement
+const itemName = document.querySelector("#itemName") as HTMLInputElement
+const itemPrice = document.querySelector("#itemPrice") as HTMLInputElement
+
+//add individual items functionality
+
+class items {
+  name: string
+  price: number
+  constructor(name: string, price: number) {
+    this.name = name
+    this.price = price
+  }
+}
+
+addItemBtn.addEventListener("click", () => {
+  let expenseCount = 0
+  const itemNameValue = itemName.value
+  const itemPriceValue = parseInt(itemPrice.value)
+  if (itemNameValue === "" || itemPriceValue === 0) {
+    alert("Please enter a valid item name and price")
+  } else {
+    const newItem = new items(itemNameValue, itemPriceValue)
+    console.log(newItem)
+    itemsTable.innerHTML += `<tr><td>${itemName.value}</td><td>${itemPriceValue}</td><td>
+    <button class="btn btn-danger" id="deleteItem${expenseCount}">
+      Delete
+    </button>
+  </td></tr>`
+  }
+  itemName.value = ""
+  itemPrice.value = ""
 })
 
 //submitbtn
@@ -167,6 +203,7 @@ submitBtn.addEventListener("click", () => {
           <h4 class="card-title" id="expAmnt">Amount : ${inputAmount.value}</h4>
           <h5 class="" id="expDescription">Description : ${inputExpenseDetails.value}</h5>
         </div>
+        
       </div>
     </div>
   </div>`
@@ -175,4 +212,7 @@ submitBtn.addEventListener("click", () => {
   } else {
     warningSection.innerHTML = "Please Fill all the required fields"
   }
+  console.log(items)
+  const subText = document.querySelector("#subText") as HTMLParagraphElement
+  subText.innerHTML = ""
 })

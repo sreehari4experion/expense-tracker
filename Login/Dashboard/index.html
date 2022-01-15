@@ -182,7 +182,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="exampleFormControlSelect1"
+                  id="itemName"
                   placeholder="Enter Item Name"
                 />
               </div>
@@ -190,12 +190,24 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="exampleFormControlSelect1"
-                  placeholder="Enter Item Amount"
+                  id="itemPrice"
+                  placeholder="Enter Item Price"
                 />
               </div>
-              <div class="btn btn-primary col-md-4">Add</div>
+              <div class="btn btn-primary col-md-4" id="addItem">Add</div>
             </div>
+          </div>
+          <div class="container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Item Name</th>
+                  <th scope="col">Item Price</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody id="itemsTable"></tbody>
+            </table>
           </div>
 
           <!-- end individual items  -->
@@ -229,7 +241,10 @@
         <!-- end filter box  -->
         <!-- show all expenses  -->
         <h3 class="display-6 text-center my-5">My Expenses</h3>
-        <div class="container" id="expensesSection"></div>
+        <h5 class="text-center" id="subText">
+          added expensses will be shown here
+        </h5>
+        <!-- <div class="container" id="expensesSection"></div>
         <div class="row">
           <div class="col-md-12">
             <div class="card row p-5">
@@ -241,9 +256,22 @@
                 <h4 class="card-title" id="expAmnt">Total Amount</h4>
                 <h5 class="" id="expDescription">Description</h5>
               </div>
+              <div class="row">
+                <div class="container">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Item Price</th>
+                      </tr>
+                    </thead>
+                    <tbody id="itemsTable"></tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <!-- end all expenses -->
